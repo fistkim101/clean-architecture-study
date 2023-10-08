@@ -9,5 +9,5 @@ include('fistkim-bank-application')
 include('saving-domain')
 
 // infrastructure
-
+include ('fistkim-bank-infrastructure')
 
