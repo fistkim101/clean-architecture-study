@@ -3,6 +3,8 @@
 - [우아한 기술 블로그 'Spring Boot Kotlin Multi Module로 구성해보는 헥사고날 아키텍처'](https://techblog.woowahan.com/12720/) 를 참고하였음
 - 위 포스팅에서는 모듈을 Bootstrap Hexagon, Application Hexagon, Domain Hexagon, Framework Hexagon 으로 구분하고 있지만
   이 레포지토리의 예제에서는 api, application, domain, infrastructure 으로 모듈을 구분하고 있음(역할은 동일하고 명칭만 다름)
+- 위 포스팅에 각 모듈의 패키지 구조가 나와있는데, 이 레포지토리의 예제에서는 패키지 구조를 포스팅과 다르게 구성하고 있음
+  [만들면서 배우는 클린 아키텍처](https://www.yes24.com/Product/Goods/105138479?pid=123487&cosemkid=go16373101893711165) 를 주로 참고함
 
 ## 각 모듈 역할 설명
 

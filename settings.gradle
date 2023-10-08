@@ -1,12 +1,13 @@
 rootProject.name = 'clean-bank'
 
 // api
-include('fistkim-bank-gateway')
 
 // application
+include('fistkim-bank-application')
 
 // domain
-include ('saving-domain')
+include('saving-domain')
 
 // infrastructure
+
 
