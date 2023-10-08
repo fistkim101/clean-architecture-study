@@ -57,12 +57,4 @@ public class Account {
         return balance;
     }
 
-    public boolean canWithdraw(Money money) {
-        if (this.accountType == AccountType.MINUS) {
-            return true;
-        }
-
-        final int currentBalance = this.balance.currentBalance();
-        return currentBalance >= money.getValue();
-    }
 }

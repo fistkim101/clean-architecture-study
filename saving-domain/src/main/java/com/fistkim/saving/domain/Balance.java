@@ -22,8 +22,8 @@ public class Balance {
     }
 
     public Money withdraw(AccountType accountType, Money amount) {
-        Money newBalance = this.money.subtract(amount);
-        if (newBalance.getValue() < 0 && accountType == AccountType.NORMAL) {
+        final Money newBalance = this.money.subtract(amount);
+        if (accountType == AccountType.NORMAL && newBalance.getValue() < 0) {
             throw new IllegalArgumentException("잔고가 부족합니다.");
         }
 

@@ -19,10 +19,6 @@ public class WithdrawService implements WithdrawUseCase {
     @Override
     public Money withdraw(Long accountId, Money money) {
         final Account account = this.loadAccountPort.loadAccount(accountId);
-        if (!(account.canWithdraw(money))) {
-            throw new IllegalArgumentException("잔액이 부족합니다.");
-        }
-
         final Money withdrawnAmount = account.withdraw(money);
         this.updateAccountBalancePort.updateAccountBalance(accountId, account.getBalance());
 
