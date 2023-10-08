@@ -11,7 +11,7 @@ class AccountTest {
     @Test
     void open() {
         final Money ten = Money.of(10);
-        final Account account = Account.open(AccountType.NORMAL, ten);
+        final Account account = this.getAccount(AccountType.NORMAL, ten);
 
         Assertions.assertThat(account.getId()).isNull();
         Assertions.assertThat(account.getAccountType()).isEqualTo(AccountType.NORMAL);
@@ -22,7 +22,7 @@ class AccountTest {
     @Test
     void deposit() {
         final Money ten = Money.of(10);
-        final Account account = Account.open(AccountType.NORMAL, ten);
+        final Account account = this.getAccount(AccountType.NORMAL, ten);
 
         account.deposit(ten);
         Assertions.assertThat(account.getBalance().currentBalance()).isEqualTo(20);
@@ -32,7 +32,7 @@ class AccountTest {
     @Test
     void withdraw() {
         final Money ten = Money.of(10);
-        final Account account = Account.open(AccountType.NORMAL, ten);
+        final Account account = this.getAccount(AccountType.NORMAL, ten);
         final Money five = Money.of(5);
 
         final Money money = account.withdraw(five);
@@ -43,7 +43,7 @@ class AccountTest {
     @Test
     void withdrawException() {
         final Money ten = Money.of(10);
-        final Account account = Account.open(AccountType.MINUS, ten);
+        final Account account = this.getAccount(AccountType.MINUS, ten);
         final Money twenty = Money.of(20);
 
         final Money withdraw = account.withdraw(twenty);
@@ -55,7 +55,7 @@ class AccountTest {
     @Test
     void close() {
         final Money ten = Money.of(10);
-        final Account account = Account.open(AccountType.NORMAL, ten);
+        final Account account = this.getAccount(AccountType.NORMAL, ten);
         final Money total = account.close();
 
         Assertions.assertThat(total.getValue()).isEqualTo(10);
@@ -65,11 +65,15 @@ class AccountTest {
     @Test
     void closeException() {
         final Money ten = Money.of(10);
-        final Account account = Account.open(AccountType.MINUS, ten);
+        final Account account = this.getAccount(AccountType.MINUS, ten);
         account.withdraw(Money.of(20));
 
         Assertions.assertThatThrownBy(account::close)
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    private Account getAccount(AccountType accountType, Money money) {
+        return Account.open(1L, accountType, money);
     }
 
 }

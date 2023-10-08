@@ -5,21 +5,25 @@ import com.fistkim.saving.type.AccountType;
 public class Account {
 
     private Long id;
+
+    private Long ownerId;
     private final AccountType accountType;
     private final Balance balance;
 
-    public static Account open(AccountType accountType, Money initialMoney) {
+    public static Account open(Long ownerId, AccountType accountType, Money initialMoney) {
         final Balance balance = Balance.of(initialMoney);
-        return new Account(accountType, balance);
+        return new Account(ownerId, accountType, balance);
     }
 
-    private Account(AccountType accountType, Balance balance) {
+    private Account(Long ownerId, AccountType accountType, Balance balance) {
+        this.ownerId = ownerId;
         this.accountType = accountType;
         this.balance = balance;
     }
 
-    public Account(Long id, AccountType accountType, Balance balance) {
+    public Account(Long id, Long ownerId, AccountType accountType, Balance balance) {
         this.id = id;
+        this.ownerId = ownerId;
         this.accountType = accountType;
         this.balance = balance;
     }
