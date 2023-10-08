@@ -72,6 +72,24 @@ class AccountTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("마이너스 통장 출금 가능한지 여부 검증")
+    @Test
+    void minusAccountCanWithdraw() {
+        final Money ten = Money.of(10);
+        final Account account = this.getAccount(AccountType.MINUS, ten);
+
+        Assertions.assertThat(account.canWithdraw(Money.of(20))).isTrue();
+    }
+
+    @DisplayName("일반 통장 출금 가능한지 여부 검증")
+    @Test
+    void normalAccountCanWithdraw() {
+        final Money ten = Money.of(10);
+        final Account account = this.getAccount(AccountType.NORMAL, ten);
+
+        Assertions.assertThat(account.canWithdraw(Money.of(20))).isFalse();
+    }
+
     private Account getAccount(AccountType accountType, Money money) {
         return Account.open(1L, accountType, money);
     }
