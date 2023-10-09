@@ -3,11 +3,10 @@ rootProject.name = 'clean-bank'
 // api
 
 // application
-include('fistkim-bank-application')
+include('saving-application')
 
 // domain
 include('saving-domain')
 
 // infrastructure
 include ('fistkim-bank-infrastructure')
-

@@ -8,9 +8,9 @@ import com.fistkim.saving.application.port.out.query.LoadAccountPort;
 import com.fistkim.saving.domain.Account;
 import com.fistkim.saving.domain.Balance;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
-@Repository
+@Component
 @RequiredArgsConstructor
 public class AccountPersistenceAdapter implements CloseAccountPort, OpenAccountPort, UpdateAccountBalancePort, LoadAccountPort {
 

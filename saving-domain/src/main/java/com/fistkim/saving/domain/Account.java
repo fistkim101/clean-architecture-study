@@ -7,7 +7,6 @@ import lombok.Getter;
 public class Account {
 
     private Long id;
-
     private final Long ownerId;
     private final AccountType accountType;
     private final Balance balance;
