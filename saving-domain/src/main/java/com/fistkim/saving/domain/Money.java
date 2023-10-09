@@ -12,7 +12,7 @@ public class Money {
         return new Money(value);
     }
 
-    private Money(int value) {
+    public Money(int value) {
         this.value = value;
     }
 

@@ -9,7 +9,7 @@ public class Balance {
         return new Balance(money);
     }
 
-    private Balance(Money money) {
+    public Balance(Money money) {
         this.money = money;
     }
 
@@ -31,4 +31,7 @@ public class Balance {
         return Money.of(amount.getValue());
     }
 
+    public Money getMoney() {
+        return money;
+    }
 }

@@ -1,12 +1,14 @@
 package com.fistkim.saving.domain;
 
 import com.fistkim.saving.type.AccountType;
+import lombok.Getter;
 
+@Getter
 public class Account {
 
     private Long id;
 
-    private Long ownerId;
+    private final Long ownerId;
     private final AccountType accountType;
     private final Balance balance;
 
@@ -43,18 +45,6 @@ public class Account {
         }
 
         return Money.of(currentBalance);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public AccountType getAccountType() {
-        return accountType;
-    }
-
-    public Balance getBalance() {
-        return balance;
     }
 
 }

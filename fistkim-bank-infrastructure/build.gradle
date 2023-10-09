@@ -1,8 +1,11 @@
 dependencies {
     implementation project(':saving-domain')
-    implementation project(':fistkim-bank-application')
-    
-    api 'org.springframework.boot:spring-boot-starter-data-jpa'
-    api 'javax.persistence:javax.persistence-api:2.2'
-    api 'mysql:mysql-connector-java:8.0.33'
+    implementation project(':saving-application')
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 }
