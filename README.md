@@ -9,7 +9,27 @@
 ## 각 모듈 역할 설명
 
 ### api
-- 
+- 프로그램의 기능을 사용하기 위한 시작점
+- application 에서 정의한 usecase 를 call 하게 된다.
+- 멀티모듈에서 실제로 서버로 띄우게 되는 어플리케이션이다.
+- domain, application, infrastructure 모두에 대한 의존을 갖는다.
+```groovy
+dependencies {
+    implementation project(':saving-domain')
+    implementation project(':saving-application')
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    runtimeOnly 'com.h2database:h2:1.4.200'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+```
 
 ### application
 - port(in, out) 를 구현한 모듈
