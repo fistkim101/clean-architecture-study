@@ -1,4 +1,4 @@
-# 클린 아키텍처(헥사고날 아키텍처) 예제 구현
+# 클린 아키텍처(헥사고날 아키텍처) 예제 구현(멀티모듈)
 
 - [우아한 기술 블로그 'Spring Boot Kotlin Multi Module로 구성해보는 헥사고날 아키텍처'](https://techblog.woowahan.com/12720/) 를 참고하였음
 - 위 포스팅에서는 모듈을 Bootstrap Hexagon, Application Hexagon, Domain Hexagon, Framework Hexagon 으로 구분하고 있지만
