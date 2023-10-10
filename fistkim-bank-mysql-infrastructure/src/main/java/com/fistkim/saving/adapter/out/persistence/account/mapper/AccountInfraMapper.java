@@ -7,8 +7,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
-public interface AccountMapper {
-    AccountMapper INSTANCE = Mappers.getMapper(AccountMapper.class);
+public interface AccountInfraMapper {
+    AccountInfraMapper INSTANCE = Mappers.getMapper(AccountInfraMapper.class);
 
     @Mapping(source = "balance.money.value", target = "balance")
     AccountJpaEntity toJpaEntity(Account account);

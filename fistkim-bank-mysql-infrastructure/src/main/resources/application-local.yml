@@ -17,8 +17,3 @@ spring:
     generate-ddl: true
     open-in-view: true
     database: mysql
-
-logging:
-  level:
-    org.hibernate.SQL: debug
-    org.hibernate.type: trace

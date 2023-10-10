@@ -1,6 +1,6 @@
 package com.fistkim.saving.adapter.out.persistence.account;
 
-import com.fistkim.saving.adapter.out.persistence.account.mapper.AccountMapperImpl;
+import com.fistkim.saving.adapter.out.persistence.account.mapper.AccountInfraMapperImpl;
 import com.fistkim.saving.domain.Account;
 import com.fistkim.saving.domain.Money;
 import com.fistkim.saving.type.AccountType;
@@ -15,7 +15,7 @@ import org.springframework.test.context.ActiveProfiles;
 import java.util.Optional;
 
 @DataJpaTest
-@Import({AccountMapperImpl.class, AccountPersistenceAdapter.class})
+@Import({AccountInfraMapperImpl.class, AccountPersistenceAdapter.class})
 @ActiveProfiles(value = "test")
 class AccountPersistenceAdapterTest {
 

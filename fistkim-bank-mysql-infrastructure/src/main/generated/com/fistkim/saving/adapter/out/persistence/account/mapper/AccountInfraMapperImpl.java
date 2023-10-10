@@ -10,11 +10,11 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-10-09T13:54:29+0900",
+    date = "2023-10-10T11:52:19+0900",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.3 (Amazon.com Inc.)"
 )
 @Component
-public class AccountMapperImpl implements AccountMapper {
+public class AccountInfraMapperImpl implements AccountInfraMapper {
 
     @Override
     public AccountJpaEntity toJpaEntity(Account account) {

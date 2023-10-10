@@ -1,0 +1,2 @@
+PUT http://localhost:8080/account/1/withdraw/500
+Content-Type: application/json
