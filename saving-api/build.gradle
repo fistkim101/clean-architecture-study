@@ -1,0 +1,11 @@
+dependencies {
+    implementation project(':saving-domain')
+    implementation project(':saving-application')
+    implementation project(':fistkim-bank-mysql-infrastructure')
+
+//    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+//    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
