@@ -9,4 +9,4 @@ include('saving-application')
 include('saving-domain')
 
 // infrastructure
-include ('fistkim-bank-infrastructure')
+include ('fistkim-bank-mysql-infrastructure')
