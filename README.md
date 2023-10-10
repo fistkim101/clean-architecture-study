@@ -5,6 +5,8 @@
   이 레포지토리의 예제에서는 api, application, domain, infrastructure 으로 모듈을 구분하고 있음(역할은 동일하고 명칭만 다름)
 - 위 포스팅에 각 모듈의 패키지 구조가 나와있는데, 이 레포지토리의 예제에서는 패키지 구조를 포스팅과 다르게 구성하고 있음
   [만들면서 배우는 클린 아키텍처](https://www.yes24.com/Product/Goods/105138479?pid=123487&cosemkid=go16373101893711165) 를 주로 참고함
+- MapStruct 사용은 [이 포스팅](https://medium.com/naver-cloud-platform/%EA%B8%B0%EC%88%A0-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%AC%B8%EC%9E%90-%EC%95%8C%EB%A6%BC-%EB%B0%9C%EC%86%A1-%EC%84%9C%EB%B9%84%EC%8A%A4-sens%EC%9D%98-mapstruct-%EC%A0%81%EC%9A%A9%EA%B8%B0-8fd2bc2bc33b)
+  을 참고했으며 해당 예제는 간단한 예제만 적용된 코드임
 
 ## 각 모듈 역할 설명
 
