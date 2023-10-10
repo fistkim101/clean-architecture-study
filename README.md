@@ -50,11 +50,36 @@ dependencies {
 - 의존이 없으니 일단 domain 모듈을 제일 먼저 생성해서 구현할 수 있다. 데이터 베이스 뭘 쓸지, 인증은 어떻게 할지, 통신은 어떻게 할지 등 그러한 고민 없이 일단 핵심적인 도메인 규칙을 구현할 수 있다.
 
 ### infrastructure
--
+- domain, application 에 의존성을 가진다. 계속해서 강조하지만 의존의 방향이 안쪽을 향한다.
+```groovy
+dependencies {
+    implementation project(':saving-domain')
+    implementation project(':saving-application')
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    runtimeOnly 'com.h2database:h2:1.4.200'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+```
+- 시스템이 사용할 기술을 다루는 모듈이다. 어떠한 비즈니스 규칙도 포함되어선 안된다.
+- application 모듈에서 선언한 out port 의 구현체이다
+- '우아한 기술 블로그' 에 따르면 infrastructure 는 기술별로 여러 개의 모듈로 쪼개어져 관리 될 수 있다고 한다.
+  예를 들어서 fistkim-bank-mysql-infrastructure, fistkim-bank-redis-infrastructure, fistkim-bank-aws-s3-infrastructure 등
 
 ### 질문 사항
 
 - [ ] 배민 기술 블로그에 보면 domain 에 종속성 하나도 없는데 테스트 하기 위한 종속성이 없어서 테스트가 안된다. 어떻게 하지?
 - [ ] MapStruct 사용 위해서 필요한 필드는 setter 정의를 해줘야하고 일부러 은닉해둔 필드들에 대해서도 전부 Getter 를 제공해서 캡슐화가 약해진다.
   특히 Setter 가 노출되는게 크다. 라이브러리 사용을 위해서 코드 자체가 변경되는 것이 맞는 것인지 잘 모르겠다. 
-- 
+- [ ] 인프라 모듈 쪼개어 진다는 것이 내가 이해한 저것이 맞는지
+- [ ] 클린 아키텍처를 떠나서 모듈 구성을 어떤식으로? 회사에서 내가 했던거랑 지난번 피드백때 받은 외부, 내부, 배치 등. 레포 구성 등 
+- [ ] 배민 포스팅에 인프라 모듈에서 '각 Framework Hexagon은 각 기술의 이름을 딴 config class를 포함하며, config class는 그 기술이 사용할 component들을 bean으로 등록할 수 있게 scan 영역을 격리'라고 하는데
+  모듈을 분리하면 애초에 그래들에서 임포트 하냐 마냐만으로 제어가 가능한데 굳이 저렇게 해야하는가
+- [ ] 인프라 모듈에는 그 어떤 도메인 규칙이 포함이 되지 않아야 하는 것이 맞는가
